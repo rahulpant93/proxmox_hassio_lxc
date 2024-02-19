@@ -141,37 +141,38 @@ msg "Configuring NetworkManager... 2"
 
 lxc-cmd sed -i 's/type\:veth/interface-name\:veth\*/' $NETWORKMANAGER_CONFIG_PATH
 msg "Configuring NetworkManager... 3"
-read
+#### read
 
 NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
 lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc/raw/master/system-connection-default
 msg "Configuring NetworkManager... 5"
-read
+#### read
 
 lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
 msg "Configuring NetworkManager... 6 $NETWORKMANAGER_PROFILE_PATH"
-read
+#### read
 
 #NETWORKMANAGER_CONNECTION=$(lxc-cmd nmcli connection | grep eth0 | awk -F "  " '{print $1}')
 #msg "Configuring NetworkManager... 7 $NETWORKMANAGER_CONNECTION"
 #lxc-cmd nmcli connection down "$NETWORKMANAGER_CONNECTION" > /dev/null
 #msg "Configuring NetworkManager... 8"
 #lxc-cmd nmcli connection delete "$NETWORKMANAGER_CONNECTION" > /dev/null
+#msg "Configuring NetworkManager... 9"
 
-msg "Configuring NetworkManager... 9"
-lxc-cmd dhclient -r &> /dev/null
-msg "Configuring NetworkManager... 10"
+#lxc-cmd dhclient -r &> /dev/null
+#msg "Configuring NetworkManager... 10"
+
 lxc-cmd systemctl restart NetworkManager
 msg "Configuring NetworkManager... 11"
 #lxc-cmd nm-online -q
-read
+#### read
 lxc-cmd nm-online
 msg "Configuring NetworkManager... 12"
 
 # Create Home Assistant config
 msg "Creating Home Assistant config..."
 HASSIO_CONFIG_PATH=/etc/hassio.json
-HASSIO_DOCKER=homeassistant/amd64-hassio-supervisor
+HASSIO_DOCKER=ghcr.io/home-assistant/amd64-hassio-supervisor
 HASSIO_MACHINE=qemux86-64
 HASSIO_DATA_PATH=/usr/share/hassio
 lxc-cmd bash -c "cat > $HASSIO_CONFIG_PATH <<- EOF
@@ -185,7 +186,7 @@ EOF
 
 # Pull Home Assistant Supervisor image
 msg "Downloading Home Assistant Supervisor container..."
-HASSIO_VERSION=$(lxc-cmd bash -c "curl -s https://version.home-assistant.io/stable.json | jq -e -r '.supervisor'")
+HASSIO_VERSION=$(lxc-cmd bash -c "curl -s https://version.home-assistant.io/stable.json | jq -r '.supervisor' || echo 'latest'")
 lxc-cmd docker pull "$HASSIO_DOCKER:$HASSIO_VERSION" > /dev/null
 lxc-cmd docker tag "$HASSIO_DOCKER:$HASSIO_VERSION" "$HASSIO_DOCKER:latest" > /dev/null
 
