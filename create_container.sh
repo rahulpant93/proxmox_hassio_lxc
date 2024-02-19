@@ -61,7 +61,7 @@ export PCT_OPTIONS="
   -cmode shell
   -features nesting=1
   -hostname homeassistant
-  -net0 name=eth0,bridge=vmbr0
+  -net0 name=eth0,bridge=vmbr1,hwaddr=BC:24:11:13:8E:E2
   -onboot 1
   -tags homeassistant
 "
@@ -132,32 +132,32 @@ lxc-cmd mkdir -p $(dirname $DOCKER_CONFIG_PATH)
 lxc-cmd wget -qLO $DOCKER_CONFIG_PATH ${HA_URL_BASE}/etc/docker/daemon.json
 lxc-cmd systemctl restart docker
 
-#### # Configure NetworkManager
-#### msg "Configuring NetworkManager..."
-#### NETWORKMANAGER_CONFIG_PATH='/etc/NetworkManager/NetworkManager.conf'
-#### msg "Configuring NetworkManager... 1"
-#### lxc-cmd wget -qLO $NETWORKMANAGER_CONFIG_PATH ${HA_URL_BASE}/etc/NetworkManager/NetworkManager.conf
-#### msg "Configuring NetworkManager... 2"
-#### lxc-cmd sed -i 's/type\:veth/interface-name\:veth\*/' $NETWORKMANAGER_CONFIG_PATH
-#### msg "Configuring NetworkManager... 3"
-#### NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
-#### msg "Configuring NetworkManager... 4"
-#### lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc/raw/master/system-connection-default
-#### msg "Configuring NetworkManager... 5"
-#### lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
-#### msg "Configuring NetworkManager... 6"
-#### NETWORKMANAGER_CONNECTION=$(lxc-cmd nmcli connection | grep eth0 | awk -F "  " '{print $1}')
-#### msg "Configuring NetworkManager... 7 $NETWORKMANAGER_CONNECTION"
-#### lxc-cmd nmcli connection down "$NETWORKMANAGER_CONNECTION" > /dev/null
-#### msg "Configuring NetworkManager... 8"
-#### lxc-cmd nmcli connection delete "$NETWORKMANAGER_CONNECTION" > /dev/null
-#### msg "Configuring NetworkManager... 9"
-#### lxc-cmd dhclient -r &> /dev/null
-#### msg "Configuring NetworkManager... 10"
-#### lxc-cmd systemctl restart NetworkManager
-#### msg "Configuring NetworkManager... 11"
-#### lxc-cmd nm-online -q
-#### msg "Configuring NetworkManager... 12"
+# Configure NetworkManager
+msg "Configuring NetworkManager..."
+NETWORKMANAGER_CONFIG_PATH='/etc/NetworkManager/NetworkManager.conf'
+msg "Configuring NetworkManager... 1"
+lxc-cmd wget -qLO $NETWORKMANAGER_CONFIG_PATH ${HA_URL_BASE}/etc/NetworkManager/NetworkManager.conf
+msg "Configuring NetworkManager... 2"
+lxc-cmd sed -i 's/type\:veth/interface-name\:veth\*/' $NETWORKMANAGER_CONFIG_PATH
+msg "Configuring NetworkManager... 3"
+NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
+msg "Configuring NetworkManager... 4"
+lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc/raw/master/system-connection-default
+msg "Configuring NetworkManager... 5"
+lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
+msg "Configuring NetworkManager... 6"
+NETWORKMANAGER_CONNECTION=$(lxc-cmd nmcli connection | grep eth0 | awk -F "  " '{print $1}')
+msg "Configuring NetworkManager... 7 $NETWORKMANAGER_CONNECTION"
+lxc-cmd nmcli connection down "$NETWORKMANAGER_CONNECTION" > /dev/null
+msg "Configuring NetworkManager... 8"
+lxc-cmd nmcli connection delete "$NETWORKMANAGER_CONNECTION" > /dev/null
+msg "Configuring NetworkManager... 9"
+lxc-cmd dhclient -r &> /dev/null
+msg "Configuring NetworkManager... 10"
+lxc-cmd systemctl restart NetworkManager
+msg "Configuring NetworkManager... 11"
+lxc-cmd nm-online -q
+msg "Configuring NetworkManager... 12"
 
 # Create Home Assistant config
 msg "Creating Home Assistant config..."
