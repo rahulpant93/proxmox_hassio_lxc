@@ -194,15 +194,25 @@ lxc-cmd docker tag "$HASSIO_DOCKER:$HASSIO_VERSION" "$HASSIO_DOCKER:latest" > /d
 msg "Installing Home Assistant Supervisor..."
 HASSIO_SUPERVISOR_PATH=/usr/sbin/hassio-supervisor
 HASSIO_SUPERVISOR_SERVICE=/etc/systemd/system/hassio-supervisor.service
+echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/hassio-supervisor
+echo lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
+echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/hassio-supervisor.service
+msg "Installing Home Assistant Supervisor... 1"
+read
 lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/hassio-supervisor
+msg "Installing Home Assistant Supervisor... 2"
 lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
+msg "Installing Home Assistant Supervisor... 3"
 lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/hassio-supervisor.service
+msg "Installing Home Assistant Supervisor... 4"
 lxc-cmd sed -i "s,%%HASSIO_CONFIG%%,${HASSIO_CONFIG_PATH},g" $HASSIO_SUPERVISOR_PATH
 lxc-cmd sed -i -e "s,%%BINARY_DOCKER%%,/usr/bin/docker,g" \
   -e "s,%%SERVICE_DOCKER%%,docker.service,g" \
   -e "s,%%BINARY_HASSIO%%,${HASSIO_SUPERVISOR_PATH},g" \
   $HASSIO_SUPERVISOR_SERVICE
+msg "Installing Home Assistant Supervisor... 5"
 lxc-cmd systemctl enable hassio-supervisor.service > /dev/null 2>&1
+msg "Installing Home Assistant Supervisor... 6"
 
 # Create service to fix Home Assistant boot time check
 msg "Creating service to fix boot time check..."
