@@ -149,8 +149,8 @@ msg "Configuring NetworkManager... 6"
 NETWORKMANAGER_CONNECTION=$(lxc-cmd nmcli connection | grep eth0 | awk -F "  " '{print $1}')
 msg "Configuring NetworkManager... 7 $NETWORKMANAGER_CONNECTION"
 lxc-cmd nmcli connection down "$NETWORKMANAGER_CONNECTION" > /dev/null
-msg "Configuring NetworkManager... 8"
-lxc-cmd nmcli connection delete "$NETWORKMANAGER_CONNECTION" > /dev/null
+#msg "Configuring NetworkManager... 8"
+#lxc-cmd nmcli connection delete "$NETWORKMANAGER_CONNECTION" > /dev/null
 msg "Configuring NetworkManager... 9"
 lxc-cmd dhclient -r &> /dev/null
 msg "Configuring NetworkManager... 10"
