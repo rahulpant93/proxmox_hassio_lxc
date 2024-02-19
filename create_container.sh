@@ -157,6 +157,7 @@ msg "Configuring NetworkManager... 10"
 lxc-cmd systemctl restart NetworkManager
 msg "Configuring NetworkManager... 11"
 #lxc-cmd nm-online -q
+read
 lxc-cmd nm-online
 msg "Configuring NetworkManager... 12"
 
