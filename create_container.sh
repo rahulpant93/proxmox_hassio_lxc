@@ -194,16 +194,16 @@ lxc-cmd docker tag "$HASSIO_DOCKER:$HASSIO_VERSION" "$HASSIO_DOCKER:latest" > /d
 msg "Installing Home Assistant Supervisor..."
 HASSIO_SUPERVISOR_PATH=/usr/sbin/hassio-supervisor
 HASSIO_SUPERVISOR_SERVICE=/etc/systemd/system/hassio-supervisor.service
-echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/hassio-supervisor
+echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-supervisor
 echo lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
-echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/hassio-supervisor.service
+echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/etc/systemd/system/hassio-supervisor.service
 msg "Installing Home Assistant Supervisor... 1"
 read
-lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/hassio-supervisor
+lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-supervisor
 msg "Installing Home Assistant Supervisor... 2"
 lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
 msg "Installing Home Assistant Supervisor... 3"
-lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/hassio-supervisor.service
+lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/etc/systemd/system/hassio-supervisor.service
 msg "Installing Home Assistant Supervisor... 4"
 lxc-cmd sed -i "s,%%HASSIO_CONFIG%%,${HASSIO_CONFIG_PATH},g" $HASSIO_SUPERVISOR_PATH
 lxc-cmd sed -i -e "s,%%BINARY_DOCKER%%,/usr/bin/docker,g" \
