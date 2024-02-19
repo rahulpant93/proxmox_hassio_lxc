@@ -125,100 +125,14 @@ bootstrap:
 	git remote add ZwerG-MaX https://github.com/ZwerG-MaX/proxmox_hassio_lxc.git
 	git remote add whiskerz007 https://github.com/whiskerz007/proxmox_hassio_lxc
 
-#merge:
-#	git merge GerdRuetten/master
-#	git merge GuiPoM/master
-#	git merge TeckyTec/patch-1
-#	git merge PopinjayJohn/master
-#	git merge PopinjayJohn/pr/44
-#	git merge rheinbuch/master
-#	git merge Toolmaster30/master
-#	git merge domi1kenobi/master
-#	git merge Johannes123/patch-1
-#	git merge emile-bodin/master
-#	git merge jt-edwards/master
-#	git merge dheath73/master
-#	git merge Terit/master
-#	git merge alexswart/master
-#	git merge lsousa/master
-#	git merge Actpohomoc/master
-#	git merge MeisterTR/master
-#	git merge dehness/master
-#	git merge jannnfe/master
-#	git merge justme88/patch-2
-#	git merge justme88/patch-1
-#	git merge vicelikedust/master
-#	git merge thiscantbeserious/master
-#	git merge BrunoCunha1983/master
-#	git merge Johannes123/master
-#	git merge MaxTyutyunnikov/master
-#	git merge Shaman2/master
-#	git merge TeckyTec/master
-#	git merge Tftlegal/master
-#	git merge YGBM/master
-#	git merge ZwerG-MaX/master
-#	git merge anarion80/master
-#	git merge arturdasilva/master
-#	git merge ccccc382/master
-#	git merge cmileto/master
-#	git merge crym761224/master
-#	git merge danmed/master
-#	git merge dazeb/master
-#	git merge dziobson/master
-#	git merge fernandodpr/master
-#	git merge jabastien/master
-#	git merge jamait/master
-#	git merge justme88/master
-#	git merge maxmax27/master
-#	git merge nnssz/master
-#	git merge origin/HEAD -> origin/master
-#	git merge origin/master
-#	git merge patrickvanreck/master
-#	git merge quenthal/master
-#	git merge roman7488/master
-#	git merge rudironsonijr/master
-#	git merge valeur01/master
-#	git merge vukhanhthuy/master
-#	git merge A-vesalius/master
-#	git merge PascalKern/Switch_From_Proxmox_To_LXC
-#	git merge xiki808/master
-#	git merge PascalKern/master
-#	git merge TimApplepie/master
-#	git merge kenthinson/master
-#	git merge Justahobby01/master
-#	git merge Yasin0ps/master
-#	git merge arbal/master
-#	git merge atarist/master
-#	git merge coreyvogt/master
-#	git merge dcossey014/master
-#	git merge dendisuhubdy/master
-#	git merge mraes/master
-#	git merge seanvm/master
-#	git merge rkkoszewski/master
-#	git merge Saberwolf64/patch-2
-#	git merge Saberwolf64/patch-1
-#	git merge Saberwolf64/master
-#	git merge hursey013/patch-1
-#	git merge hursey013/master
-#	git merge charliedgabriel/master
-#	git merge adampielak/master
-#	git merge arturasaleknavicius/master
-#	git merge MarcJenningsUK/master
-#	git merge meichthys/master
-#	git merge timmo001/master
-
 worktrees:
-	git worktree add ../proxmox_hassio_lxc.Actpohomoc; cd ../proxmox_hassio_lxc.Actpohomoc; git checkout Actpohomoc/master
 	git worktree add ../proxmox_hassio_lxc.adampielak; cd ../proxmox_hassio_lxc.adampielak; git checkout adampielak/master
-	git worktree add ../proxmox_hassio_lxc.ahuacate; cd ../proxmox_hassio_lxc.ahuacate; git checkout ahuacate/master
 	git worktree add ../proxmox_hassio_lxc.alexswart; cd ../proxmox_hassio_lxc.alexswart; git checkout alexswart/master
 	git worktree add ../proxmox_hassio_lxc.anarion80; cd ../proxmox_hassio_lxc.anarion80; git checkout anarion80/master
 	git worktree add ../proxmox_hassio_lxc.arbal; cd ../proxmox_hassio_lxc.arbal; git checkout arbal/master
 	git worktree add ../proxmox_hassio_lxc.arturasaleknavicius; cd ../proxmox_hassio_lxc.arturasaleknavicius; git checkout arturasaleknavicius/master
 	git worktree add ../proxmox_hassio_lxc.arturdasilva; cd ../proxmox_hassio_lxc.arturdasilva; git checkout arturdasilva/master
 	git worktree add ../proxmox_hassio_lxc.atarist; cd ../proxmox_hassio_lxc.atarist; git checkout atarist/master
-	git worktree add ../proxmox_hassio_lxc.A-vesalius; cd ../proxmox_hassio_lxc.A-vesalius; git checkout A-vesalius/master
-	git worktree add ../proxmox_hassio_lxc.BrunoCunha1983; cd ../proxmox_hassio_lxc.BrunoCunha1983; git checkout BrunoCunha1983/master
 	git worktree add ../proxmox_hassio_lxc.ccccc382; cd ../proxmox_hassio_lxc.ccccc382; git checkout ccccc382/master
 	git worktree add ../proxmox_hassio_lxc.charliedgabriel; cd ../proxmox_hassio_lxc.charliedgabriel; git checkout charliedgabriel/master
 	git worktree add ../proxmox_hassio_lxc.cmileto; cd ../proxmox_hassio_lxc.cmileto; git checkout cmileto/master
@@ -232,11 +146,8 @@ worktrees:
 	git worktree add ../proxmox_hassio_lxc.dheath73; cd ../proxmox_hassio_lxc.dheath73; git checkout dheath73/master
 	git worktree add ../proxmox_hassio_lxc.domi1kenobi; cd ../proxmox_hassio_lxc.domi1kenobi; git checkout domi1kenobi/master
 	git worktree add ../proxmox_hassio_lxc.dziobson; cd ../proxmox_hassio_lxc.dziobson; git checkout dziobson/master
-	git worktree add ../proxmox_hassio_lxc.electrostyle; cd ../proxmox_hassio_lxc.electrostyle; git checkout electrostyle/master
 	git worktree add ../proxmox_hassio_lxc.emile-bodin; cd ../proxmox_hassio_lxc.emile-bodin; git checkout emile-bodin/master
 	git worktree add ../proxmox_hassio_lxc.fernandodpr; cd ../proxmox_hassio_lxc.fernandodpr; git checkout fernandodpr/master
-	git worktree add ../proxmox_hassio_lxc.GerdRuetten; cd ../proxmox_hassio_lxc.GerdRuetten; git checkout GerdRuetten/master
-	git worktree add ../proxmox_hassio_lxc.GuiPoM; cd ../proxmox_hassio_lxc.GuiPoM; git checkout GuiPoM/master
 	git worktree add ../proxmox_hassio_lxc.hursey013; cd ../proxmox_hassio_lxc.hursey013; git checkout hursey013/master
 	git worktree add ../proxmox_hassio_lxc.jabastien; cd ../proxmox_hassio_lxc.jabastien; git checkout jabastien/master
 	git worktree add ../proxmox_hassio_lxc.jamait; cd ../proxmox_hassio_lxc.jamait; git checkout jamait/master
@@ -246,16 +157,11 @@ worktrees:
 	git worktree add ../proxmox_hassio_lxc.Justahobby01; cd ../proxmox_hassio_lxc.Justahobby01; git checkout Justahobby01/master
 	git worktree add ../proxmox_hassio_lxc.justme88; cd ../proxmox_hassio_lxc.justme88; git checkout justme88/master
 	git worktree add ../proxmox_hassio_lxc.kenthinson; cd ../proxmox_hassio_lxc.kenthinson; git checkout kenthinson/master
-	git worktree add ../proxmox_hassio_lxc.leschNUX; cd ../proxmox_hassio_lxc.leschNUX; git checkout leschNUX/master
 	git worktree add ../proxmox_hassio_lxc.lsousa; cd ../proxmox_hassio_lxc.lsousa; git checkout lsousa/master
-	git worktree add ../proxmox_hassio_lxc.MarcJenningsUK; cd ../proxmox_hassio_lxc.MarcJenningsUK; git checkout MarcJenningsUK/master
 	git worktree add ../proxmox_hassio_lxc.maxmax27; cd ../proxmox_hassio_lxc.maxmax27; git checkout maxmax27/master
-	git worktree add ../proxmox_hassio_lxc.MaxTyutyunnikov; cd ../proxmox_hassio_lxc.MaxTyutyunnikov; git checkout MaxTyutyunnikov/master
-	git worktree add ../proxmox_hassio_lxc.meichthys; cd ../proxmox_hassio_lxc.meichthys; git checkout meichthys/master
 	git worktree add ../proxmox_hassio_lxc.MeisterTR; cd ../proxmox_hassio_lxc.MeisterTR; git checkout MeisterTR/master
 	git worktree add ../proxmox_hassio_lxc.mraes; cd ../proxmox_hassio_lxc.mraes; git checkout mraes/master
 	git worktree add ../proxmox_hassio_lxc.nnssz; cd ../proxmox_hassio_lxc.nnssz; git checkout nnssz/master
-	git worktree add ../proxmox_hassio_lxc.paarak; cd ../proxmox_hassio_lxc.paarak; git checkout paarak/master
 	git worktree add ../proxmox_hassio_lxc.PascalKern; cd ../proxmox_hassio_lxc.PascalKern; git checkout PascalKern/master
 	git worktree add ../proxmox_hassio_lxc.patrickvanreck; cd ../proxmox_hassio_lxc.patrickvanreck; git checkout patrickvanreck/master
 	git worktree add ../proxmox_hassio_lxc.PopinjayJohn; cd ../proxmox_hassio_lxc.PopinjayJohn; git checkout PopinjayJohn/master
@@ -272,9 +178,7 @@ worktrees:
 	git worktree add ../proxmox_hassio_lxc.Tftlegal; cd ../proxmox_hassio_lxc.Tftlegal; git checkout Tftlegal/master
 	git worktree add ../proxmox_hassio_lxc.thiscantbeserious; cd ../proxmox_hassio_lxc.thiscantbeserious; git checkout thiscantbeserious/master
 	git worktree add ../proxmox_hassio_lxc.TimApplepie; cd ../proxmox_hassio_lxc.TimApplepie; git checkout TimApplepie/master
-	git worktree add ../proxmox_hassio_lxc.timmo001; cd ../proxmox_hassio_lxc.timmo001; git checkout timmo001/master
 	git worktree add ../proxmox_hassio_lxc.Toolmaster30; cd ../proxmox_hassio_lxc.Toolmaster30; git checkout Toolmaster30/master
-	git worktree add ../proxmox_hassio_lxc.Valcob; cd ../proxmox_hassio_lxc.Valcob; git checkout Valcob/master
 	git worktree add ../proxmox_hassio_lxc.valeur01; cd ../proxmox_hassio_lxc.valeur01; git checkout valeur01/master
 	git worktree add ../proxmox_hassio_lxc.vicelikedust; cd ../proxmox_hassio_lxc.vicelikedust; git checkout vicelikedust/master
 	git worktree add ../proxmox_hassio_lxc.vukhanhthuy; cd ../proxmox_hassio_lxc.vukhanhthuy; git checkout vukhanhthuy/master
@@ -282,3 +186,131 @@ worktrees:
 	git worktree add ../proxmox_hassio_lxc.Yasin0ps; cd ../proxmox_hassio_lxc.Yasin0ps; git checkout Yasin0ps/master
 	git worktree add ../proxmox_hassio_lxc.YGBM; cd ../proxmox_hassio_lxc.YGBM; git checkout YGBM/master
 	git worktree add ../proxmox_hassio_lxc.ZwerG-MaX; cd ../proxmox_hassio_lxc.ZwerG-MaX; git checkout ZwerG-MaX/master
+	git worktree add ../proxmox_hassio_lxc.whiskerz007; cd ../proxmox_hassio_lxc.whiskerz007; git checkout whiskerz007/master
+
+compare:
+#	meld ./ ../proxmox_hassio_lxc.TeckyTec
+#	meld ./ ../proxmox_hassio_lxc.PopinjayJohn
+#	meld ./ ../proxmox_hassio_lxc.rheinbuch
+#	meld ./ ../proxmox_hassio_lxc.Toolmaster30
+#	meld ./ ../proxmox_hassio_lxc.domi1kenobi
+#	meld ./ ../proxmox_hassio_lxc.Johannes123
+#	meld ./ ../proxmox_hassio_lxc.emile-bodin
+#	meld ./ ../proxmox_hassio_lxc.jt-edwards
+#	meld ./ ../proxmox_hassio_lxc.dheath73
+#	meld ./ ../proxmox_hassio_lxc.Terit
+#	meld ./ ../proxmox_hassio_lxc.alexswart
+#	meld ./ ../proxmox_hassio_lxc.lsousa
+#	meld ./ ../proxmox_hassio_lxc.Actpohomoc
+#	meld ./ ../proxmox_hassio_lxc.MeisterTR
+#	meld ./ ../proxmox_hassio_lxc.dehness
+#	meld ./ ../proxmox_hassio_lxc.jannnfe
+#	meld ./ ../proxmox_hassio_lxc.justme88
+#	meld ./ ../proxmox_hassio_lxc.vicelikedust
+#	meld ./ ../proxmox_hassio_lxc.thiscantbeserious
+#	meld ./ ../proxmox_hassio_lxc.Johannes123
+#	meld ./ ../proxmox_hassio_lxc.Shaman2
+#	meld ./ ../proxmox_hassio_lxc.TeckyTec
+#	meld ./ ../proxmox_hassio_lxc.Tftlegal
+#	meld ./ ../proxmox_hassio_lxc.YGBM
+#	meld ./ ../proxmox_hassio_lxc.ZwerG-MaX
+#	meld ./ ../proxmox_hassio_lxc.anarion80
+#	meld ./ ../proxmox_hassio_lxc.arturdasilva
+#	meld ./ ../proxmox_hassio_lxc.ccccc382
+#	meld ./ ../proxmox_hassio_lxc.cmileto
+#	meld ./ ../proxmox_hassio_lxc.crym761224
+#	meld ./ ../proxmox_hassio_lxc.danmed
+#	meld ./ ../proxmox_hassio_lxc.dazeb
+#	meld ./ ../proxmox_hassio_lxc.dziobson
+#	meld ./ ../proxmox_hassio_lxc.fernandodpr
+#	meld ./ ../proxmox_hassio_lxc.jabastien
+#	meld ./ ../proxmox_hassio_lxc.jamait
+#	meld ./ ../proxmox_hassio_lxc.justme88
+#	meld ./ ../proxmox_hassio_lxc.maxmax27
+#	meld ./ ../proxmox_hassio_lxc.nnssz
+#	meld ./ ../proxmox_hassio_lxc.patrickvanreck
+#	meld ./ ../proxmox_hassio_lxc.quenthal
+#	meld ./ ../proxmox_hassio_lxc.roman7488
+#	meld ./ ../proxmox_hassio_lxc.rudironsonijr
+#	meld ./ ../proxmox_hassio_lxc.valeur01
+#	meld ./ ../proxmox_hassio_lxc.vukhanhthuy
+#	meld ./ ../proxmox_hassio_lxc.PascalKern
+#	meld ./ ../proxmox_hassio_lxc.xiki808
+#	meld ./ ../proxmox_hassio_lxc.PascalKern
+#	meld ./ ../proxmox_hassio_lxc.TimApplepie
+#	meld ./ ../proxmox_hassio_lxc.kenthinson
+#	meld ./ ../proxmox_hassio_lxc.Justahobby01
+#	meld ./ ../proxmox_hassio_lxc.Yasin0ps
+
+d:
+	git worktree remove ../proxmox_hassio_lxc.A-vesalius || :
+	git worktree remove ../proxmox_hassio_lxc.Actpohomoc || :
+	git worktree remove ../proxmox_hassio_lxc.BrunoCunha1983 || :
+	git worktree remove ../proxmox_hassio_lxc.GerdRuetten || :
+	git worktree remove ../proxmox_hassio_lxc.GerdRuetten || :
+	git worktree remove ../proxmox_hassio_lxc.Johannes123 || :
+	git worktree remove ../proxmox_hassio_lxc.MaxTyutyunnikov || :
+	git worktree remove ../proxmox_hassio_lxc.MeisterTR || :
+	git worktree remove ../proxmox_hassio_lxc.PascalKern || :
+	git worktree remove ../proxmox_hassio_lxc.Shaman2 || :
+	git worktree remove ../proxmox_hassio_lxc.TeckyTec || :
+	git worktree remove ../proxmox_hassio_lxc.Terit || :
+	git worktree remove ..//proxmox_hassio_lxc.Tftlegal || :
+	git worktree remove ..//proxmox_hassio_lxc.Toolmaster30 || :
+	git worktree remove ..//proxmox_hassio_lxc.YGBM || :
+	git worktree remove ..//proxmox_hassio_lxc.ZwerG-MaX || :
+	git worktree remove ..//proxmox_hassio_lxc.adampielak || :
+	git worktree remove ..//proxmox_hassio_lxc.alexswart || :
+	git worktree remove ..//proxmox_hassio_lxc.anarion80 || :
+	git worktree remove ..//proxmox_hassio_lxc.arturasaleknavicius || :
+	git worktree remove ..//proxmox_hassio_lxc.arturdasilva || :
+	git worktree remove ..//proxmox_hassio_lxc.ccccc382 || :
+	git worktree remove ..//proxmox_hassio_lxc.charliedgabriel || :
+	git worktree remove ..//proxmox_hassio_lxc.cmileto || :
+	git worktree remove ..//proxmox_hassio_lxc.crym761224 || :
+	git worktree remove ../proxmox_hassio_lxc.whiskerz007/ || :
+	git worktree remove ../proxmox_hassio_lxc.vukhanhthuy/ || :
+	git worktree remove ../proxmox_hassio_lxc.valeur01/ || :
+	git worktree remove ../proxmox_hassio_lxc.rudironsonijr/ || :
+	git worktree remove ../proxmox_hassio_lxc.roman7488/ || :
+	git worktree remove ../proxmox_hassio_lxc.rheinbuch/ || :
+	git worktree remove ../proxmox_hassio_lxc.quenthal/ || :
+	git worktree remove ../proxmox_hassio_lxc.patrickvanreck/ || :
+	git worktree remove ../proxmox_hassio_lxc.nnssz/ || :
+	git worktree remove ../proxmox_hassio_lxc.maxmax27/ || :
+	git worktree remove ../proxmox_hassio_lxc.justme88/ || :
+	git worktree remove ../proxmox_hassio_lxc.jamait/ || :
+	git worktree remove ../proxmox_hassio_lxc.jabastien/ || :
+	git worktree remove ../proxmox_hassio_lxc.fernandodpr/ || :
+	git worktree remove ../proxmox_hassio_lxc.emile-bodin/ || :
+	git worktree remove ../proxmox_hassio_lxc.dziobson/ || :
+	git worktree remove ../proxmox_hassio_lxc.dazeb/ || :
+	git worktree remove ../proxmox_hassio_lxc.danmed/ || :
+	git worktree remove ../proxmox_hassio_lxc.crym761224/ || :
+	git worktree remove ../proxmox_hassio_lxc.cmileto/ || :
+	git worktree remove ..//proxmox_hassio_lxc.dehness || :
+	git worktree remove ..//proxmox_hassio_lxc.dheath73 || :
+	git worktree remove ..//proxmox_hassio_lxc.domi1kenobi || :
+	git worktree remove ..//proxmox_hassio_lxc.hursey013 || :
+	git worktree remove ..//proxmox_hassio_lxc.jannnfe || :
+	git worktree remove ..//proxmox_hassio_lxc.thiscantbeserious || :
+	git worktree remove ..//proxmox_hassio_lxc.vicelikedust || :
+	git worktree remove ..//proxmox_hassio_lxc.xiki808 || :
+	git worktree remove ..//proxmox_hassio_lxc.Saberwolf64 || :
+	git worktree remove ..//proxmox_hassio_lxc.TimApplepie || :
+	git worktree remove ..//proxmox_hassio_lxc.arbal || :
+	git worktree remove ..//proxmox_hassio_lxc.atarist || :
+	git worktree remove ..//proxmox_hassio_lxc.coreyvogt || :
+	git worktree remove ..//proxmox_hassio_lxc.dcossey014 || :
+	git worktree remove ..//proxmox_hassio_lxc.jt-edwards || :
+	git worktree remove ..//proxmox_hassio_lxc.lsousa || :
+	git worktree remove ..//proxmox_hassio_lxc.kenthinson || :
+	git worktree remove ..//proxmox_hassio_lxc.seanvm || :
+	git worktree remove ..//proxmox_hassio_lxc.rkkoszewski || :
+	git worktree remove ..//proxmox_hassio_lxc.mraes || :
+	git worktree remove ..//proxmox_hassio_lxc.dendisuhubdy || :
+	git worktree remove ..//proxmox_hassio_lxc.Yasin0ps || :
+	git worktree remove ..//proxmox_hassio_lxc.PopinjayJohn || :
+#	git worktree remove ../ || :
+#	git worktree remove ../ || :
+#	git worktree remove ../ || :

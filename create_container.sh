@@ -53,7 +53,9 @@ pushd $TEMP_DIR >/dev/null
 # Create LXC
 export CTID=$(pvesh get /cluster/nextid)
 export PCT_OSTYPE=debian
-export PCT_OSVERSION=10
+export PCT_OSVERSION=12
+#export PCT_OSTYPE=ubuntu
+#export PCT_OSVERSION=23.04
 export PCT_DISK_SIZE=4
 export PCT_OPTIONS="
   -cmode shell
@@ -63,7 +65,7 @@ export PCT_OPTIONS="
   -onboot 1
   -tags homeassistant
 "
-bash -c "$(wget -qLO - https://github.com/whiskerz007/proxmox_lxc_create/raw/main/lxc_create.sh)" || exit
+bash -c "$(wget -qLO - https://github.com/MaxTyutyunnikov/proxmox_lxc_create/raw/main/lxc_create.sh)" || exit
 
 # Detect storage pool type
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
@@ -72,19 +74,19 @@ if [ "$STORAGE_TYPE" == "zfspool" ]; then
 fi
 
 # Download setup script
-REPO="https://github.com/whiskerz007/proxmox_hassio_lxc"
+REPO="https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc"
 wget -qO - ${REPO}/tarball/master | tar -xz --strip-components=1
 
 # Modify LXC permissions to support Docker
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
-lxc.cgroup.devices.allow: a
+lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
 
 # Load modules for Docker before starting LXC
 cat << 'EOF' >> $LXC_CONFIG
-lxc.hook.pre-start: sh -ec 'for module in aufs overlay; do modinfo $module; $(lsmod | grep -Fq $module) || modprobe $module; done;'
+lxc.hook.pre-start: sh -ec 'for module in overlay; do modinfo $module; $(lsmod | grep -Fq $module) || modprobe $module; done;'
 EOF
 
 # Set autodev hook to enable access to devices in container
@@ -110,7 +112,7 @@ lxc-cmd apt-get -y purge openssh-{client,server} >/dev/null
 
 # Update container OS
 msg "Updating container OS..."
-lxc-cmd apt-get update >/dev/null
+lxc-cmd apt-get update --allow-releaseinfo-change >/dev/null
 lxc-cmd apt-get -qqy upgrade &>/dev/null
 
 # Install prerequisites
@@ -125,9 +127,9 @@ lxc-cmd sh <(curl -sSL https://get.docker.com) &>/dev/null
 # Configure Docker configuration
 msg "Configuring Docker..."
 DOCKER_CONFIG_PATH='/etc/docker/daemon.json'
-HA_URL_BASE=https://github.com/home-assistant/supervised-installer/raw/master/files
+HA_URL_BASE=https://raw.githubusercontent.com/home-assistant/supervised-installer/main/homeassistant-supervised
 lxc-cmd mkdir -p $(dirname $DOCKER_CONFIG_PATH)
-lxc-cmd wget -qLO $DOCKER_CONFIG_PATH ${HA_URL_BASE}/docker_daemon.json
+lxc-cmd wget -qLO $DOCKER_CONFIG_PATH ${HA_URL_BASE}/etc/docker/daemon.json
 lxc-cmd systemctl restart docker
 
 # Configure NetworkManager
@@ -213,7 +215,7 @@ lxc-cmd apt-get autoclean >/dev/null
 lxc-cmd rm -rf /var/{cache,log}/* /var/lib/apt/lists/*
 ### Finish LXC commands ###
 
-# Get network details
+# Get network details and show completion message
 IP=$(pct exec $CTID ip a s dev eth0 | sed -n '/inet / s/\// /p' | awk '{print $2}')
 
 # Show completion message
