@@ -140,8 +140,8 @@ lxc-cmd wget -qLO $NETWORKMANAGER_CONFIG_PATH ${HA_URL_BASE}/etc/NetworkManager/
 msg "Configuring NetworkManager... 2"
 lxc-cmd sed -i 's/type\:veth/interface-name\:veth\*/' $NETWORKMANAGER_CONFIG_PATH
 msg "Configuring NetworkManager... 3"
-NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
-msg "Configuring NetworkManager... 4"
+#NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
+#msg "Configuring NetworkManager... 4"
 #lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH ${HA_URL_BASE}/system-connection-default
 #msg "Configuring NetworkManager... 5"
 #lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
