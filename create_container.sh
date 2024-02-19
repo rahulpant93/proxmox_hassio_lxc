@@ -198,18 +198,23 @@ echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-su
 echo lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
 echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/etc/systemd/system/hassio-supervisor.service
 msg "Installing Home Assistant Supervisor... 1"
+
 lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-supervisor
 msg "Installing Home Assistant Supervisor... 2"
+
 lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
 msg "Installing Home Assistant Supervisor... 3"
+
 lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/etc/systemd/system/hassio-supervisor.service
 msg "Installing Home Assistant Supervisor... 4"
+
 lxc-cmd sed -i "s,%%HASSIO_CONFIG%%,${HASSIO_CONFIG_PATH},g" $HASSIO_SUPERVISOR_PATH
 lxc-cmd sed -i -e "s,%%BINARY_DOCKER%%,/usr/bin/docker,g" \
   -e "s,%%SERVICE_DOCKER%%,docker.service,g" \
   -e "s,%%BINARY_HASSIO%%,${HASSIO_SUPERVISOR_PATH},g" \
   $HASSIO_SUPERVISOR_SERVICE
 msg "Installing Home Assistant Supervisor... 5"
+
 lxc-cmd systemctl enable hassio-supervisor.service > /dev/null 2>&1
 msg "Installing Home Assistant Supervisor... 6"
 
@@ -240,6 +245,8 @@ lxc-cmd sed -i 's,^\(mesg n.*\)$,# \1,' /root/.profile
 lxc-cmd chmod a+x $HA_CLI_PATH
 lxc-cmd usermod --shell $HA_CLI_PATH root
 lxc-cmd bash -c "echo -e '\ncd $HASSIO_DATA_PATH' >> /root/.bashrc"
+lxc-cmd bash -c "mkdir -p /usr/share/hassio"
+lxc-cmd bash -c "touch /usr/share/hassio/supervisor-version"
 
 # Cleanup container
 msg "Cleanup..."
