@@ -144,8 +144,8 @@ NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
 msg "Configuring NetworkManager... 4"
 #lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH ${HA_URL_BASE}/system-connection-default
 #msg "Configuring NetworkManager... 5"
-lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
-msg "Configuring NetworkManager... 6"
+#lxc-cmd chmod 600 $NETWORKMANAGER_PROFILE_PATH
+#msg "Configuring NetworkManager... 6"
 NETWORKMANAGER_CONNECTION=$(lxc-cmd nmcli connection | grep eth0 | awk -F "  " '{print $1}')
 msg "Configuring NetworkManager... 7"
 lxc-cmd nmcli connection down "$NETWORKMANAGER_CONNECTION" > /dev/null
