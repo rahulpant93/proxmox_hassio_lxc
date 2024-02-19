@@ -156,7 +156,8 @@ lxc-cmd dhclient -r &> /dev/null
 msg "Configuring NetworkManager... 10"
 lxc-cmd systemctl restart NetworkManager
 msg "Configuring NetworkManager... 11"
-lxc-cmd nm-online -q
+#lxc-cmd nm-online -q
+lxc-cmd nm-online
 msg "Configuring NetworkManager... 12"
 
 # Create Home Assistant config
