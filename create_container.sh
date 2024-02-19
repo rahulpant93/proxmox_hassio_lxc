@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash/
 
 # Setup script environment
 set -o errexit  #Exit immediately if a pipeline returns a non-zero status
@@ -198,7 +198,6 @@ echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-su
 echo lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
 echo lxc-cmd wget -qLO $HASSIO_SUPERVISOR_SERVICE ${HA_URL_BASE}/etc/systemd/system/hassio-supervisor.service
 msg "Installing Home Assistant Supervisor... 1"
-read
 lxc-cmd wget -qLO $HASSIO_SUPERVISOR_PATH ${HA_URL_BASE}/usr/sbin/hassio-supervisor
 msg "Installing Home Assistant Supervisor... 2"
 lxc-cmd chmod a+x $HASSIO_SUPERVISOR_PATH
@@ -226,7 +225,9 @@ lxc-cmd systemctl start hassio-supervisor.service
 
 # Install 'ha' cli
 msg "Installing the 'ha' cli..."
-lxc-cmd wget -qLO /usr/bin/ha ${HA_URL_BASE}/ha
+echo lxc-cmd wget -qLO /usr/bin/ha ${HA_URL_BASE}/usr/bin/ha
+echo lxc-cmd chmod a+x /usr/bin/ha
+lxc-cmd wget -qLO /usr/bin/ha ${HA_URL_BASE}/usr/bin/ha
 lxc-cmd chmod a+x /usr/bin/ha
 
 # Setup 'ha' cli prompt
