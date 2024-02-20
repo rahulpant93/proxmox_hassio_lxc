@@ -56,12 +56,14 @@ export PCT_OSTYPE=debian
 export PCT_OSVERSION=12
 #export PCT_OSTYPE=ubuntu
 #export PCT_OSVERSION=23.04
-export PCT_DISK_SIZE=4
+export PCT_DISK_SIZE=64
 export PCT_OPTIONS="
   -cmode shell
   -features nesting=1
   -hostname homeassistant
   -net0 name=eth0,bridge=vmbr1,hwaddr=BC:24:11:13:8E:E2,firewall=0,ip=dhcp,type=veth
+  -nameserver 192.168.11.5
+  -searchdomain home
   -onboot 1
   -tags homeassistant
 "
@@ -80,6 +82,7 @@ wget -qO - ${REPO}/tarball/master | tar -xz --strip-components=1
 # Modify LXC permissions to support Docker
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
+lxc.cgroup.devices.allow: a
 lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
