@@ -61,13 +61,13 @@ export PCT_OPTIONS="
   -cmode shell
   -features nesting=1
   -hostname homeassistant
-  -net0 name=eth0,bridge=vmbr1,hwaddr=BC:24:11:13:8E:E2,firewall=0,ip=dhcp,type=veth
-  -nameserver 192.168.11.5
-  -searchdomain home
+  -net0 name=eth0,bridge=vmbr0,hwaddr=BC:24:11:AB:B0:47,firewall=0,ip=dhcp,type=veth
+  -nameserver 192.168.29.1
+  -searchdomain home.arpa
   -onboot 1
   -tags homeassistant
 "
-bash -c "$(wget -qLO - https://github.com/MaxTyutyunnikov/proxmox_lxc_create/raw/main/lxc_create.sh)" || exit
+bash -c "$(wget -qLO - https://github.com/rahulpant93/proxmox_lxc_create/raw/main/lxc_create.sh)" || exit
 
 # Detect storage pool type
 STORAGE_TYPE=$(pvesm status -storage $(pct config $CTID | grep rootfs | awk -F ":" '{print $2}') | awk 'NR>1 {print $2}')
@@ -76,7 +76,7 @@ if [ "$STORAGE_TYPE" == "zfspool" ]; then
 fi
 
 # Download setup script
-REPO="https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc"
+REPO="https://github.com/rahulpant93/proxmox_hassio_lxc"
 wget -qO - ${REPO}/tarball/master | tar -xz --strip-components=1
 
 # Modify LXC permissions to support Docker
@@ -147,7 +147,7 @@ msg "Configuring NetworkManager... 3"
 #### read
 
 NETWORKMANAGER_PROFILE_PATH='/etc/NetworkManager/system-connections/default'
-lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH https://github.com/MaxTyutyunnikov/proxmox_hassio_lxc/raw/master/system-connection-default
+lxc-cmd wget -qLO $NETWORKMANAGER_PROFILE_PATH https://github.com/rahulpant93/proxmox_hassio_lxc/raw/master/system-connection-default
 msg "Configuring NetworkManager... 5"
 #### read
 
